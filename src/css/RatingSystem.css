@@ -1,0 +1,40 @@
+.rating-icon {
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .rating-icon.active {
+    color: #ff6600; /* Change this color for the active rating */
+  }
+
+  .rating-icon:hover {
+    color: #ff6600; /* Change this color for the active rating */
+  }
+  
+  /* CreateRatingForm.css */
+.rating-container {
+  display: flex; /* Set display to flex for horizontal layout */
+  align-items: center; /* Center align items vertically within the container */
+}
+
+.rating-label input {
+  display: none; /* Hide the default radio buttons */
+}
+
+.rating-label {
+  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  margin-right: 10px; /* Adjust spacing between icon and label if needed */
+}
+
+.svg-inline--fa {
+display: var(--fa-display, inline-block);
+height: 1em;
+overflow: visible;
+vertical-align: -0.125em;
+}
+
+.svg.svg-inline--fa.fa-dumpster-fire {
+color: #999;
+}
