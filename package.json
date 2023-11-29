@@ -27,6 +27,7 @@
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
+    "react-youtube": "^10.1.0",
     "sequelize": "^6.32.1",
     "vite-express": "^0.9.1"
   },
