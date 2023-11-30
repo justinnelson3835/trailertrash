@@ -29,12 +29,20 @@
 }
 
 .svg-inline--fa {
-display: var(--fa-display, inline-block);
-height: 1em;
-overflow: visible;
-vertical-align: -0.125em;
+  display: var(--fa-display, inline-block);
+  height: 1.5em;
+  overflow: visible;
+  vertical-align: -0.125em;
 }
 
-.svg.svg-inline--fa.fa-dumpster-fire {
-color: #999;
+.svg-inline--fa.fa-dumpster-fire {
+  color: #999;
+}
+
+.svg-inline--fa.fa-dumpster-fire:hover {
+  color: #DC3545;
+}
+
+.svg-inline--fa.fa-dumpster-fire:active {
+  color: #DC3545;
 }

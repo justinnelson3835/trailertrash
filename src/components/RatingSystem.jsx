@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../css/RatingSystem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDumpsterFire } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'react-bootstrap';
 
 export default function RatingSystem({ onCreateRating }) {
   const [scoreValue, setScoreValue] = useState('');
@@ -17,7 +18,7 @@ export default function RatingSystem({ onCreateRating }) {
 
   return (
     <form onSubmit={handleSubmit} className="rating-container">
-      <label>Score:</label>
+      <label></label>
       {[1, 2, 3, 4, 5].map((value) => (
         <label key={value} className="rating-label">
           <input
@@ -30,9 +31,9 @@ export default function RatingSystem({ onCreateRating }) {
           <FontAwesomeIcon icon={faDumpsterFire} />
         </label>
       ))}
-      <button type="submit">
+      <Button variant="danger" type="submit">
        Submit
-      </button>
+      </Button>
     </form>
   );
 }

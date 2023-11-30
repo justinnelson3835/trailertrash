@@ -8,8 +8,8 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import App from './App.jsx';
-import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.css'
+import './css/index.css';
 import MovieListPage from './pages/MovieListPage.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import IndexPage from './pages/IndexPage.jsx';

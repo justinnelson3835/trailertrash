@@ -1,8 +1,10 @@
 import axios from 'axios';
-import {useEffect, useState} from "react"
+import { useState } from "react"
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import YouTube from 'react-youtube';
+import { Button } from 'react-bootstrap';
 import RatingSystem from '../components/RatingSystem.jsx';
+
 
 export default function TrailerPage() {
   const {
@@ -26,10 +28,10 @@ export default function TrailerPage() {
   return (
     <>
       <div className="poster"
-                             style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(${BACKDROP_PATH}${backdrop_path})`,
+                             style={{backgroundImage: `url(${BACKDROP_PATH}${backdrop_path})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
-                                    backgroundRepeat: 'no-repeat',
+
                                     height: '100vh',
                              }}>
                             {playing ?
@@ -40,8 +42,8 @@ export default function TrailerPage() {
                                         containerClassName={"youtube-container amru"}
                                         opts={
                                             {
-                                                width: '100%',
-                                                height: '100%',
+                                                width: '640',
+                                                height: '360',
                                                 playerVars: {
                                                     autoplay: 1,
                                                     controls: 0,
@@ -55,30 +57,34 @@ export default function TrailerPage() {
                                             }
                                         }
                                     />
-                                    <button onClick={() => setPlaying(false)} className={"button close-video"}>Close
-                                    </button>
+                                    <div className="d-flex justify-content-center">
+                                    <Button variant="danger" onClick={() => setPlaying(false)}>Close
+                                    </Button></div>
                                 </> :
                                 <div className="center-max-size">
-                                    <div className="poster-content">
+                                    <div className="d-flex justify-content-center">
                                         {trailer ?
-                                            <button className={"button play-video"} onClick={() => setPlaying(true)}
-                                                    type="button">Play
-                                                Trailer</button>
+                                            
+                                                <Button variant="danger" onClick={() => setPlaying(true)}>
+                                                Watch Trailer
+                                              </Button>
                                             : 'Sorry, no trailer available'}
                                         
                                     </div>
-                                    
+                                    <h1>{title}</h1>
+                                    <p>{overview}</p>
                                 </div>
                             }
                             
                         </div>
 
 
-      <h1>{title}</h1>
-      <img src={poster_path ? IMAGE_PATH + poster_path : ''} alt={title} style={{ width: '200px' }} />
-      <p>{overview}</p>
-      <h2>Rate this movie</h2>
+      <div className="d-flex justify-content-center">
+      <h2>Rate This Trailer</h2>
+      </div>
+      <div className="d-flex justify-content-center">
       <RatingSystem onCreateRating={handleCreateRating} />
+      </div>
     </>
   );
 }

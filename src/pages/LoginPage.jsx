@@ -12,14 +12,20 @@ export default function LoginPage() {
     const res = await axios.post('/api/auth', formData);
 
     if (res.data.success) {
-      navigate('/me');
+      navigate('/movies');
     }
   };
 
   return (
     <>
-      <h1>Log In</h1>
-      <LoginForm onLogin={handleLogin} />
+      <div className="login-background">
+
+
+        <div className="d-flex align-self-center justify-content-center">
+        
+        <LoginForm onLogin={handleLogin} />
+        </div>
+      </div>
     </>
   );
 }
