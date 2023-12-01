@@ -2,7 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import morgan from 'morgan';
 import ViteExpress from 'vite-express';
-import { Movie, User } from './src/model.js';
+import { Movie, User, Rating } from './src/model.js';
 
 const app = express();
 const port = '8000';
@@ -59,7 +59,7 @@ app.get('/api/ratings', loginRequired, async (req, res) => {
   const ratings = await user.getRatings({
     include: {
       model: Movie,
-      attributes: ['title'],
+      attributes: ['title', 'poster_path'],
     },
   });
 
@@ -75,5 +75,38 @@ app.post('/api/ratings', loginRequired, async (req, res) => {
 
   res.json(rating);
 });
+
+app.delete('/api/ratings/:ratingId', loginRequired, async (req, res) => {
+  const { userId } = req.session;
+  const { ratingId } = req.params;
+
+  try {
+    console.log('Deleting rating:', ratingId);
+
+    // Find the rating associated with the user and the provided ratingId
+    const user = await User.findByPk(userId);
+    const rating = await Rating.findOne({
+      where: {
+        ratingId: ratingId,
+        userId: userId,
+      },
+    });
+
+    if (!rating) {
+      console.log('Rating not found:', ratingId);
+      return res.status(404).json({ message: 'Rating not found' });
+    }
+
+    // Delete the rating
+    await rating.destroy();
+    console.log('Rating deleted successfully:', ratingId);
+
+    res.status(200).json({ message: 'Rating deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting rating:', error);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message, stack: error.stack });
+  }
+});
+
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));

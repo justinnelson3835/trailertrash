@@ -20,7 +20,7 @@ export default function RatingSystem({ onCreateRating }) {
     <form onSubmit={handleSubmit} className="rating-container">
       <label></label>
       {[1, 2, 3, 4, 5].map((value) => (
-        <label key={value} className="rating-label">
+        <label key={value} className={`rating-label ${value <= scoreValue ? 'selected' : ''}`}>
           <input
             type="radio"
             name="score"

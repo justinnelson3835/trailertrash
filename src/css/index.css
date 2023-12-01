@@ -41,6 +41,10 @@ a.active {
   color: #dc3545;
 }
 
+.card-body {
+  text-align: center;
+}
+
 .hr {
   margin: 0;
   border-top: none;
