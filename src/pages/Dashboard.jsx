@@ -34,9 +34,9 @@ export default function Dashboard() {
           <Card.Title>{title}</Card.Title>
           </Link>
           Score: {score}
-          <Button variant="danger" onClick={() => handleDelete(ratingId)}>
+         <div> <Button variant="danger" onClick={() => handleDelete(ratingId)}>
             Delete Rating
-          </Button>
+          </Button></div>
         </CardBody>
           
       </Card>

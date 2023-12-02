@@ -8,13 +8,12 @@ import RatingSystem from '../components/RatingSystem.jsx';
 
 export default function TrailerPage() {
   const {
-    movie: { title, poster_path, overview, backdrop_path, trailer, movieId },
+    movie: { title, overview, backdrop_path, trailer, movieId },
   } = useLoaderData();
   const navigate = useNavigate();
 
   const [playing, setPlaying] = useState(false)
 
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/w342/"
   const BACKDROP_PATH = "https://image.tmdb.org/t/p/w1280/"
 
   const handleCreateRating = async (event, { score }) => {

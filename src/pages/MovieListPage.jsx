@@ -23,7 +23,7 @@ export default function MovieListPage() {
   return (
     <>
       <h1>All Movies</h1>
-      <div className="row row-cols-4 row-cols-md-4">
+      <div className="row row-cols-6 row-cols-md-6">
       {movieListItems}
       </div>
     </>
